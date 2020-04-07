@@ -1,0 +1,50 @@
+{
+  "name": "api-news-explorer",
+  "version": "0.0.1",
+  "description": "Бэкенд для проекта News Explorer",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kirpinev/api-news-explorer.git"
+  },
+  "author": "Igor Kirpinev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kirpinev/api-news-explorer/issues"
+  },
+  "homepage": "https://github.com/kirpinev/api-news-explorer#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-node": "^4.0.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "nodemon": "^2.0.2",
+    "prettier": "^2.0.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "celebrate": "^12.0.1",
+    "chalk": "^4.0.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "escape-html": "^1.0.3",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.1.1",
+    "express-winston": "^4.0.3",
+    "helmet": "^3.22.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.5.5",
+    "mongoose": "^5.9.7",
+    "mongoose-unique-validator": "^2.0.3",
+    "validator": "^13.0.0",
+    "winston": "^3.2.1"
+  }
+}
