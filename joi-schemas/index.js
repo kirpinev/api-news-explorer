@@ -22,7 +22,7 @@ const articleSchema = Joi.object().keys({
   keyword: textSchema,
   title: textSchema,
   text: textSchema,
-  data: textSchema,
+  date: textSchema,
   source: textSchema,
   link: linkSchema,
   image: linkSchema,
