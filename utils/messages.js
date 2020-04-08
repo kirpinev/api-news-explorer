@@ -1,11 +1,12 @@
 const messages = {
   registration: {
     allFields: {
-      isRequired:
-        'Необходимо передать все поля (email, password, name)',
+      isRequired: 'Необходимо передать все поля (email, password, name)',
     },
     password: {
       tooShort: 'Длина пароля должна быть минимум 8 символов',
+      isRequired: 'Пароль обязателен',
+      isEmpty: 'Поле пароля не может быть пустысым',
     },
     email: {
       shouldBeUnique: 'Почта должна быть уникальной',
