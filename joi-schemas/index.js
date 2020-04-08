@@ -18,7 +18,7 @@ const loginSchema = Joi.object().keys({
 
 const objectIdSchema = Joi.object().keys({ id: objectId });
 
-const cardSchema = Joi.object().keys({
+const articleSchema = Joi.object().keys({
   keyword: textSchema,
   title: textSchema,
   text: textSchema,
@@ -33,5 +33,5 @@ module.exports = {
   registrationSchema,
   loginSchema,
   objectIdSchema,
-  cardSchema,
+  articleSchema,
 };
