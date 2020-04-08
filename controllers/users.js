@@ -3,7 +3,7 @@ const escape = require('escape-html');
 const User = require('../models/user');
 const { createToken, messages } = require('../utils');
 
-const { BadRequestError } = require('../errors');
+const { BadRequestError, NotFoundError } = require('../errors');
 
 module.exports.createUser = (req, res, next) =>
   bcrypt.hash(req.body.password, 10).then((hash) =>
@@ -40,5 +40,6 @@ module.exports.login = (req, res, next) =>
 
 module.exports.getUserInfo = (req, res, next) =>
   User.findById(req.user._id)
+    .orFail(() => new NotFoundError(messages.user.id.isNotFound))
     .then((user) => res.send({ data: user }))
     .catch(next);
