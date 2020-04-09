@@ -30,7 +30,10 @@ const messages = {
     },
   },
   article: {
-    isDeleted: 'Новость успешно удалена',
+    deletion: {
+      isForbidden: 'Недостаточно прав для удаления новости',
+      isDeleted: 'Новость успешно удалена',
+    },
     id: {
       isNotFound: 'Нет новости с таким id',
       isNotValid: 'Id новости не соответствует стандарту',

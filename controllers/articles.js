@@ -6,6 +6,7 @@ const {
   BadRequestError,
   UnauthorizedError,
   NotFoundError,
+  ForbiddenError,
 } = require('../errors');
 
 module.exports.createArticle = (req, res, next) =>
@@ -45,11 +46,11 @@ module.exports.deleteUserArticle = (req, res, next) =>
     .orFail(() => new NotFoundError(messages.article.id.isNotFound))
     .then((article) => {
       if (article.owner.toString() !== req.user._id) {
-        throw new UnauthorizedError(messages.authorization.isRequired);
+        throw new ForbiddenError(messages.article.deletion.isForbidden);
       }
 
       return Article.deleteOne(article)
-        .then(() => res.send({ message: messages.article.isDeleted }))
+        .then(() => res.send({ message: messages.article.deletion.isDeleted }))
         .catch(next);
     })
     .catch(next);
