@@ -20,14 +20,14 @@ router.post(
   '/',
   verifyUserObjectId,
   celebrate({ body: articleSchema }),
-  createArticle
+  createArticle,
 );
 
 router.delete(
   '/:id',
   verifyUserObjectId,
   verifyArticleObjectId,
-  deleteUserArticle
+  deleteUserArticle,
 );
 
 module.exports = router;

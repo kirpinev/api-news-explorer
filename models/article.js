@@ -54,7 +54,7 @@ const articleSchema = new mongoose.Schema(
       select: false,
     },
   },
-  { versionKey: false }
+  { versionKey: false },
 );
 
 module.exports = mongoose.model('article', articleSchema);

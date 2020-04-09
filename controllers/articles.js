@@ -4,7 +4,7 @@ const { messages } = require('../utils');
 
 const { BadRequestError, NotFoundError, ForbiddenError } = require('../errors');
 
-module.exports.createArticle = (req, res, next) =>
+module.exports.createArticle = (req, res, next) => {
   Article.create({
     keyword: escape(req.body.keyword),
     title: escape(req.body.title),
@@ -15,7 +15,7 @@ module.exports.createArticle = (req, res, next) =>
     image: req.body.image,
     owner: req.user._id,
   })
-    .then((article) =>
+    .then((article) => {
       res.status(201).send({
         data: {
           keyword: article.keyword,
@@ -26,16 +26,18 @@ module.exports.createArticle = (req, res, next) =>
           link: article.link,
           image: article.image,
         },
-      })
-    )
+      });
+    })
     .catch((err) => next(new BadRequestError(err.message)));
+};
 
-module.exports.getUserArticles = (req, res, next) =>
+module.exports.getUserArticles = (req, res, next) => {
   Article.find({ owner: req.user._id })
     .then((articles) => res.send({ data: articles }))
     .catch(next);
+};
 
-module.exports.deleteUserArticle = (req, res, next) =>
+module.exports.deleteUserArticle = (req, res, next) => {
   Article.findById(req.params.id)
     .select('+owner')
     .orFail(() => new NotFoundError(messages.article.id.isNotFound))
@@ -49,3 +51,4 @@ module.exports.deleteUserArticle = (req, res, next) =>
         .catch(next);
     })
     .catch(next);
+};
