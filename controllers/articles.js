@@ -2,12 +2,7 @@ const escape = require('escape-html');
 const Article = require('../models/article');
 const { messages } = require('../utils');
 
-const {
-  BadRequestError,
-  UnauthorizedError,
-  NotFoundError,
-  ForbiddenError,
-} = require('../errors');
+const { BadRequestError, NotFoundError, ForbiddenError } = require('../errors');
 
 module.exports.createArticle = (req, res, next) =>
   Article.create({
