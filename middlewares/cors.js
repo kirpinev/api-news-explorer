@@ -1,4 +1,4 @@
-const whiteList = ['http://localhost:8080/'];
+const whiteList = ['localhost:8080'];
 
 module.exports.cors = (req, res, next) => {
   const { origin } = req.headers;
