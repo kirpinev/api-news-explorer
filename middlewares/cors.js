@@ -1,6 +1,8 @@
+const router = require('express').Router();
+
 const whiteList = ['localhost:8080'];
 
-module.exports.cors = (req, res, next) => {
+const cors = (req, res, next) => {
   const { origin } = req.headers;
 
   if (whiteList.includes(origin)) {
@@ -18,3 +20,7 @@ module.exports.cors = (req, res, next) => {
 
   next();
 };
+
+router.use(cors);
+
+module.exports = router;
