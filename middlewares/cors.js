@@ -2,7 +2,7 @@ const router = require('express').Router();
 const cors = require('cors');
 
 const corsOptions = {
-  origin: 'http://localhost:8080',
+  origin: 'https://kirpinev.github.io/news-explorer/',
   optionsSuccessStatus: 200,
   credentials: true
 }
