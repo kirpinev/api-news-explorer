@@ -11,7 +11,7 @@
 //
 // module.exports = router;
 
-const allowedCors = ['http://localhost:8080'];
+const allowedCors = ['http://localhost:8080', 'https://kirpinev.github.io'];
 
 module.exports.cors = (req, res, next) => {
   const { origin } = req.headers;
