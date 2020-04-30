@@ -33,6 +33,7 @@ module.exports.login = (req, res, next) => {
         maxAge: 3600000 * 24 * 7,
         httpOnly: true,
         sameSite: true,
+        domain: 'http://localhost:8080'
       });
 
       res.status(200).send({ message: messages.authorization.isSuccessful });
