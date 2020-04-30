@@ -23,6 +23,9 @@ const messages = {
       isRequired: 'Необходимо передать оба поля email и password',
     },
   },
+  logout: {
+    isSuccess: 'Вы успешно разлогировались',
+  },
   user: {
     id: {
       isNotFound: 'Нет пользователя с такими id',
