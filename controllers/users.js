@@ -32,7 +32,7 @@ module.exports.login = (req, res, next) => {
       res.cookie('jwt', token, {
         maxAge: 3600000 * 24 * 7,
         httpOnly: true,
-        // sameSite: true,
+        sameSite: true,
       });
 
       res.status(200).send({ message: messages.authorization.isSuccessful });
