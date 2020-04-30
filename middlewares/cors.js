@@ -1,12 +1,34 @@
-const router = require('express').Router();
-const cors = require('cors');
+// const router = require('express').Router();
+// const cors = require('cors');
+//
+// const corsOptions = {
+//   origin: 'http://localhost:8080',
+//   optionsSuccessStatus: 200,
+//   credentials: true
+// }
+//
+// router.use(cors(corsOptions));
+//
+// module.exports = router;
 
-const corsOptions = {
-  origin: 'http://localhost:8080',
-  optionsSuccessStatus: 200,
-  credentials: true
-}
+const allowedCors = [
+  'http://localhost:8080',
+];
 
-router.use(cors(corsOptions));
+module.exports.cors = (req, res, next) => {
+  const { origin } = req.headers;
 
-module.exports = router;
+  if (allowedCors.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+    res.header(
+      'Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept'
+    );
+    res.header(
+      'Access-Control-Allow-Methods',
+      'GET,HEAD,PUT,PATCH,POST,DELETE'
+    );
+  }
+
+  next();
+};
