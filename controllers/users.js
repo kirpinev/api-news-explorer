@@ -14,6 +14,7 @@ module.exports.createUser = (req, res, next) => {
     })
       .then((user) => {
         res.status(201).send({
+          status: '201',
           data: {
             email: user.email,
             name: user.name,
@@ -34,7 +35,9 @@ module.exports.login = (req, res, next) => {
         httpOnly: true,
       });
 
-      res.status(200).send({ message: messages.authorization.isSuccessful });
+      res
+        .status(200)
+        .send({ status: '200', message: messages.authorization.isSuccessful });
     })
     .catch(next);
 };
@@ -44,12 +47,12 @@ module.exports.logout = (req, res, next) => {
     httpOnly: true,
   });
 
-  res.status(200).send({ message: messages.logout.isSuccess });
+  res.status(200).send({ status: '200', message: messages.logout.isSuccess });
 };
 
 module.exports.getUserInfo = (req, res, next) => {
   User.findById(req.user._id)
     .orFail(() => new NotFoundError(messages.user.id.isNotFound))
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send({ status: '200', data: user }))
     .catch(next);
 };
