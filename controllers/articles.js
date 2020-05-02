@@ -19,6 +19,7 @@ module.exports.createArticle = (req, res, next) => {
       res.status(201).send({
         status: '201',
         data: {
+          id: article._id,
           keyword: article.keyword,
           title: article.title,
           text: article.text,
