@@ -5,6 +5,6 @@ const { verifyUserObjectId } = require('../middlewares/object-id');
 
 router.use(auth);
 
-router.get('/', verifyUserObjectId, getUserInfo);
+router.get('/me', verifyUserObjectId, getUserInfo);
 
 module.exports = router;

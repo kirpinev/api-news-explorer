@@ -18,7 +18,7 @@ router.use(middlewares);
 router.use('/signup', registration);
 router.use('/signin', authorization);
 router.use('/logout', logout);
-router.use('/users/me', users);
+router.use('/users', users);
 router.use('/articles', articles);
 router.use('*', error);
 
