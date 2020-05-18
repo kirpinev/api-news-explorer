@@ -7,6 +7,7 @@ const { errorHandler } = require('../middlewares/error-handler');
 
 const registration = require('./registration');
 const authorization = require('./authorization');
+const logout = require('./logout');
 const users = require('./users');
 const articles = require('./articles');
 const error = require('./error');
@@ -16,6 +17,7 @@ router.use(middlewares);
 
 router.use('/signup', registration);
 router.use('/signin', authorization);
+router.use('/logout', logout);
 router.use('/users', users);
 router.use('/articles', articles);
 router.use('*', error);

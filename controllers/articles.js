@@ -17,7 +17,9 @@ module.exports.createArticle = (req, res, next) => {
   })
     .then((article) => {
       res.status(201).send({
+        status: '201',
         data: {
+          id: article._id,
           keyword: article.keyword,
           title: article.title,
           text: article.text,
@@ -33,7 +35,7 @@ module.exports.createArticle = (req, res, next) => {
 
 module.exports.getUserArticles = (req, res, next) => {
   Article.find({ owner: req.user._id })
-    .then((articles) => res.send({ data: articles }))
+    .then((articles) => res.send({ status: '200', data: articles }))
     .catch(next);
 };
 
@@ -47,7 +49,12 @@ module.exports.deleteUserArticle = (req, res, next) => {
       }
 
       return Article.deleteOne(article)
-        .then(() => res.send({ message: messages.article.deletion.isDeleted }))
+        .then(() =>
+          res.send({
+            status: '200',
+            message: messages.article.deletion.isDeleted,
+          })
+        )
         .catch(next);
     })
     .catch(next);
